@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ><!--ng-app="appMenu"> -->
+    <head>
+        <title>Dhis2 Menu</title>
+
+        <!-- Stylesheets related to the menu -->
+        <link type="text/css" rel="stylesheet" href="https://gemed-pilot.sante-bj.org/dhis-web-commons/font-awesome/css/font-awesome.min.css"/>
+        <link type="text/css" rel="stylesheet" media="screen" href="https://gemed-pilot.sante-bj.org/dhis-web-commons/css/menu.css">
+    </head>
+
+    <body style="background-color: black;">
+
+        <div id="dhisDropDownMenu"></div>
+        <div id='header'><img
+          id='headerBanner'
+          src="https://gemed-pilot.sante-bj.org/api/staticContent/logo_banner"
+          (click)='redirecAction()' style='cursor:pointer;max-width:175px;max-height:44px'
+          title='View home page'
+          /><span id='headerText' (click)='redirecAction()' style='cursor:pointer' title='View home page'>{{ application_title }}</span>
+          <div id='dhisDropDownMenu'></div>
+        </div>
+
+        <!-- DHIS2 Settings initialization for a baseUrl that is used for the menu -->
+        <script>
+            window.dhis2 = window.dhis2 || {};
+            dhis2.settings = dhis2.settings || {};
+            dhis2.settings.baseUrl = 'https://gemed-pilot.sante-bj.org';
+        </script>
+
+        <!-- Menu scripts -->
+        <script type="text/javascript" src="https://gemed-pilot.sante-bj.org/dhis-web-commons/javascripts/jQuery/jquery.min.js"></script>
+        <script type="text/javascript" src="https://gemed-pilot.sante-bj.org/dhis-web-commons/javascripts/dhis2/dhis2.translate.js"></script>
+        <script type="text/javascript" src="https://gemed-pilot.sante-bj.org/dhis-web-commons/javascripts/dhis2/dhis2.menu.js"></script>
+        <script type="text/javascript" src="https://gemed-pilot.sante-bj.org/dhis-web-commons/javascripts/dhis2/dhis2.menu.ui.js"></script>
+
+    </body>
+</html>
