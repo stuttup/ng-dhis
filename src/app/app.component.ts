@@ -14,12 +14,12 @@ export class AppComponent implements OnInit {
   application_url = 'https://gemed-pilot.sante-bj.org/';
 
   ngOnInit(): void {
-    init({baseUrl: 'https://gemed-pilot.sante-bj.org/api'})
-    .then(d2 => {
-      d2.models.user.list()
-        .then(userCollection => {
-          userCollection.forEach(user => console.log(user.name));
-        });
-    });
+    // init({baseUrl: 'https://gemed-pilot.sante-bj.org/api'})
+    // .then(d2 => {
+    //   d2.models.user.list()
+    //     .then(userCollection => {
+    //       userCollection.forEach(user => console.log(user.name));
+    //     });
+    // });
   }
 }
