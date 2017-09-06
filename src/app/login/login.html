@@ -1,19 +1,68 @@
-<div>
-   <div class="login jumbotron center-block">
-    <h1>Se connecter</h1>
-    <form role="form" (submit)="login($event, username.value, password.value)">
-      <div class="form-group">
-        <label for="username">Nom d'utilisateur</label>
-        <input type="text" #username class="form-control" id="username" placeholder="Username">
+<section class="login-block">
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-4 login-sec">
+  		    <h2 class="text-center">Connexion</h2>
+  		    <form class="login-form" role="form" (submit)="login($event, username.value, password.value)" >
+            <div class="form-group">
+              <label for="username" class="text-uppercase">Nom d'utilisateur</label>
+              <input type="text" #username class="form-control" id="username" placeholder="" required>
+
+            </div>
+            <div class="form-group">
+              <label for="password" class="text-uppercase">Mot de passe</label>
+              <input type="password" #password class="form-control" id="password" placeholder="" required>
+            </div>
+
+
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input">
+                <small>Se souvenir de moi</small>
+              </label>
+            <button type="submit" class="btn btn-login float-right">Se connecter</button>
+            </div>
+
+        </form>
+        <div class="copy-text"> &copy;<a href="http://www.tentelemed.com">Telemedicine Technologies SAS</a>  2017 </div>
+    		</div>
+    		<div class="col-md-8 banner-sec">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                     <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                      </ol>
+                <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <img class="d-block img-fluid" src="assets/img/newbanner.jpg" alt="">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="banner-text">
+              <h2>Faîtes parler les chiffres!</h2>
+              <p>Piloter votre établissement</p>
+            </div>
       </div>
-      <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" #password class="form-control" id="password" placeholder="Password">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block img-fluid" src="assets/img/newbanner2.jpg" alt="">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="banner-text">
+              <h2>Faîtes parler les chiffres!</h2>
+              <p>Piloter votre établissement</p>
+            </div>
+        </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block img-fluid" src="assets/img/newbanner3.jpg" alt="">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="banner-text">
+                <h2>Faîtes parler les chiffres!</h2>
+                <p>Piloter votre établissement</p>
+            </div>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
-    </form>
-  </div>
-  <div>
-    <foo-details></foo-details>
-  </div>
-</div>
+                </div>
+
+    		</div>
+    	</div>
+    </div>

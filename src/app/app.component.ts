@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {getInstance} from 'd2/lib/d2';
 import {init} from 'd2/lib/d2';
 
+import { LoginService } from './login/login.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,9 @@ export class AppComponent implements OnInit {
   title = 'Gemed Pilot';
   application_url = 'https://gemed-pilot.sante-bj.org/';
 
+  constructor (private login: LoginService)  {
+  }
+
   ngOnInit(): void {
     // init({baseUrl: 'https://gemed-pilot.sante-bj.org/api'})
     // .then(d2 => {
@@ -22,4 +26,7 @@ export class AppComponent implements OnInit {
     //     });
     // });
   }
+  get loggedIn(){
+    return this.login.loggedIn();
+}
 }

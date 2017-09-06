@@ -8,7 +8,7 @@ export class LoginService {
   private OauthLoginEndPointUrl = 'https://gemed-pilot.sante-bj.org/uaa/oauth/token';  // Oauth Login EndPointUrl to web API
   private clientId ='angular';
   private clientSecret ='3c0d8dd51-6d99-e733-760e-6992f6140ba';
-  //private response_type = 'code';
+  private isLoggedIn: boolean;
 
   constructor(public http: Http) {}
 
@@ -20,11 +20,17 @@ export class LoginService {
      params.set('client_id', this.clientId );
      params.set('client_secret', this.clientSecret );
      params.set('grant_type', 'password' );
-     //params.set('crossDomain', 'true' );
 
     return this.http.get(this.OauthLoginEndPointUrl , {
                    search: params
-                 }).map(this.handleData)
+                 }).map((res: Response) => {
+                   let body = res.json();
+                   if (body && body.token) {
+                     localStorage.setItem('currentUser', JSON.stringify(body));
+                     this.isLoggedIn = true;
+                   }
+                   return body;
+                 })
                    .catch(this.handleError);
   }
 
@@ -44,5 +50,8 @@ export class LoginService {
 
   public logout() {
      localStorage.removeItem('token');
+  }
+  loggedIn() {
+    return !(localStorage.getItem('token') == null);
   }
 }
